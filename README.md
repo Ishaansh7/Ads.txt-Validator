@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/Ishaansh7/Ads.txt-Validator/main/vdoai-logo.png" width="180" alt="VDO.AI logo" />
 </p>
 
-# 🧾 ads.txt Validator
+# 🧾 Ads.txt Validator
 
 Easily validate your `ads.txt` lines across multiple domains with this Streamlit-powered tool.
 
