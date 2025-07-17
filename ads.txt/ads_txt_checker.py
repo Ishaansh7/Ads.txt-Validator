@@ -2,29 +2,18 @@ import streamlit as st
 import pandas as pd
 import requests
 
-# ----------- 🖼️ Add VDO.AI Logo -----------
-LOGO_URL = "https://assets-global.website-files.com/5fa2f89762e5c64fd23c34f4/5fa2f89762e5c63e7a3c34f8_VDOAI%20Logo.svg"
-
+# ----------- 📄 App Config -----------
 st.set_page_config(page_title="Ads.txt Validator", layout="wide")
 
-# ----------- 🎨 Theme Switch -----------
-theme = st.selectbox("🎨 Choose Theme", ["Light", "Dark"], index=0)
-if theme == "Dark":
-    st.markdown("""
-        <style>
-        html, body, [class*="css"]  {
-            background-color: #0e1117;
-            color: #FAFAFA;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+# ----------- 🖼️ Logo -----------
+LOGO_URL = "https://uploads-ssl.webflow.com/5fa2f89762e5c64fd23c34f4/607e8e9041522448026b95fd_vdoai-logo-new.png"
+st.image(LOGO_URL, width=160)
 
-# ----------- 📊 Page Layout -----------
-st.image(LOGO_URL, width=150)
-st.title("🧾 ads.txt Validator")
-st.markdown("Validate ads.txt lines across multiple domains. Paste domains and ads.txt lines below and get instant results.")
+# ----------- 🧾 Title -----------
+st.title("ads.txt Validator")
+st.markdown("Easily validate your ads.txt lines across multiple domains. Paste your inputs below 👇")
 
-# ----------- 📝 Input Section -----------
+# ----------- 🔢 Input Fields -----------
 st.subheader("🔹 Input")
 col1, col2 = st.columns(2)
 
@@ -34,7 +23,7 @@ with col1:
 with col2:
     ads_lines_input = st.text_area("Enter ads.txt lines to check", height=200)
 
-# ----------- 🧠 Logic -----------
+# ----------- 🧠 Helper Functions -----------
 def clean_line(line):
     return line.split('#')[0].strip()
 
@@ -47,8 +36,8 @@ def get_ads_txt(domain):
     except:
         return None
 
-# ----------- 🟢 Validate Button -----------
-if st.button("✅ Validate"):
+# ----------- ✅ Validation Logic -----------
+if st.button("Validate"):
     domains = [d.strip() for d in domains_input.splitlines() if d.strip()]
     ads_lines = [clean_line(l) for l in ads_lines_input.splitlines() if clean_line(l)]
 
@@ -75,4 +64,4 @@ if st.button("✅ Validate"):
 
 # ----------- 📎 Footer -----------
 st.markdown("---")
-st.markdown("Built by VDO.AI • Validate smart, validate fast 💡")
+st.markdown("Built by **Ishaan Sharma** • Powered by [VDO.AI](https://vdo.ai)", unsafe_allow_html=True)
