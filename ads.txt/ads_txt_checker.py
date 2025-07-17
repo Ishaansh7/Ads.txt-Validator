@@ -6,7 +6,7 @@ import requests
 st.set_page_config(page_title="Ads.txt Validator", layout="wide")
 
 # ----------- 🖼️ Logo -----------
-LOGO_URL = "https://uploads-ssl.webflow.com/5fa2f89762e5c64fd23c34f4/607e8e9041522448026b95fd_vdoai-logo-new.png"
+LOGO_URL = "https://raw.githubusercontent.com/Ishaansh7/Ads.txt-Validator/refs/heads/main/vdoai-logo.png"
 st.image(LOGO_URL, width=160)
 
 # ----------- 🧾 Title -----------
