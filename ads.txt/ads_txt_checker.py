@@ -28,13 +28,16 @@ def clean_line(line):
     return line.split('#')[0].strip()
 
 def get_ads_txt(domain):
-    try:
-        url = f"http://{domain}/ads.txt"
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
-        return response.text
-    except:
-        return None
+    for proto in ("https://", "http://"):
+        try:
+            url = f"{proto}{domain}/ads.txt"
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+            return response.text
+        except Exception as e:
+            # optionally log or st.write the error for debugging
+            continue
+    return None
 
 # ----------- ✅ Validation Logic -----------
 if st.button("Validate"):
